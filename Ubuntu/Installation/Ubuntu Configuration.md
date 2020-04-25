@@ -319,6 +319,16 @@ rails --version
 sudo npm install -g typescript
 ```
 
+- git
+
+安装 git
+
+```shell
+sudo apt update
+sudo apt install git
+git --version
+```
+
 - 珂雪尚往，参见 monocloud 的指南，Network Proxy Settings - Manual
 
 http://shadowsocks.org/en/download/servers.html
