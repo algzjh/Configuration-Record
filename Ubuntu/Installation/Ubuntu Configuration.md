@@ -506,7 +506,37 @@ sudo apt-get install sshfs
 
 常用 CSVDocument.csv, HTMLPage.html, Markdown.md, NewTextFile.txt, PythonScript.py, ShellScript.sh
 
+- 安装 filezilla
 
+```shell
+sudo apt update
+sudo apt install filezilla
+```
+
+- 安装 Postman
+
+```shell
+sudo snap install postman
+```
+
+- Latex
+
+- GNOME Dictionary
+
+```shell
+sudo snap install gnome-dictionary
+```
+
+- GeoGebra Classic 6
+
+Linux (deb) 64 bit installer for .deb based systems
+
+https://wiki.geogebra.org/en/Reference:GeoGebra_Installation
+
+```shell
+sudo apt-add-repository -u 'deb http://www.geogebra.net/linux/ stable main' 
+sudo apt install geogebra-classic 
+```
 
 
 
