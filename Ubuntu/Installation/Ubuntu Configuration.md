@@ -99,8 +99,6 @@ nameserver 2400:3200:baba::1
 dig alidns.com
 ```
 
-
-
 - 看 home 是不是单独分开挂载的
 - 调整休眠时间
 - C++ 环境
@@ -152,6 +150,17 @@ sudo add-apt-repository universe
 sudo apt update
 sudo apt install exfat-fuse exfat-utils
 ```
+
+- 安装 unrar
+
+```shell
+sudo apt-get install unrar
+sudo apt-get install rar
+unrar x tecmint.rar
+rar a tecmint.rar tecmint
+```
+
+
 
 - Java 环境
 
@@ -537,6 +546,16 @@ https://wiki.geogebra.org/en/Reference:GeoGebra_Installation
 sudo apt-add-repository -u 'deb http://www.geogebra.net/linux/ stable main' 
 sudo apt install geogebra-classic 
 ```
+
+- 卸载 LibreOffice，安装 WPS
+
+```shell
+sudo apt-get remove --purge libreoffice*
+sudo apt-get clean
+sudo apt-get autoremove
+```
+
+- 安装 MySQL
 
 
 
