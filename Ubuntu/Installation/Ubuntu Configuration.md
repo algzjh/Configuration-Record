@@ -530,6 +530,10 @@ sudo snap install postman
 
 - Latex
 
+```shell
+sudo apt-get install texlive-full
+```
+
 - GNOME Dictionary
 
 ```shell
@@ -559,19 +563,10 @@ sudo apt-get autoremove
 
 
 
-
-
 ## Other Problems
 
 输入密码后不能进入桌面
 
 https://askubuntu.com/questions/1086367/ubuntu-18-04-login-window-loop
-
-
-
-
-
-
-
 
 
