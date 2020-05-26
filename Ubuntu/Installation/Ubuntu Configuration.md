@@ -55,6 +55,7 @@ https://askubuntu.com/questions/1043763/system-can-not-reboot-after-completing-i
 ## partition recommendation
 
 Total: 256 GB
+如果需要的话，还可以分配更多空间
 
 UEFI System:
 
@@ -511,6 +512,16 @@ sudo apt-get install sshfs
 ```
 
 - cuda 安装
+
+http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
+
+https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal
+
+~/.profile
+```shell
+export PATH="$PATH:/usr/local/cuda-10.2/bin"
+```
+
 - Home-Templates 添加
 
 常用 CSVDocument.csv, HTMLPage.html, Markdown.md, NewTextFile.txt, PythonScript.py, ShellScript.sh
@@ -527,6 +538,7 @@ sudo apt install filezilla
 ```shell
 sudo snap install postman
 ```
+too slow
 
 - Latex
 
@@ -560,6 +572,39 @@ sudo apt-get autoremove
 ```
 
 - 安装 MySQL
+
+```shell
+sudo apt update
+sudo apt install mysql-server
+sudo mysql_secure_installation
+```
+
+Adjusting User Authentication and Privileges.
+```shell
+sudo mysql
+SELECT user,authentication_string,plugin,host FROM mysql.user;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+FLUSH PRIVILEGES;
+SELECT user,authentication_string,plugin,host FROM mysql.user;
+exit
+```
+
+Testing MySQL
+
+```shell
+systemctl status mysql.service
+```
+
+If MySQL isn’t running, you can start it with `sudo systemctl start mysql`.
+
+using the mysqladmin tool
+
+```shell
+sudo mysqladmin -p -u root version
+```
+
+- 安装 Hadoop、Yarn、Spark
+
 
 
 
