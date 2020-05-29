@@ -161,8 +161,6 @@ unrar x tecmint.rar
 rar a tecmint.rar tecmint
 ```
 
-
-
 - Java 环境
 
 https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
@@ -189,6 +187,8 @@ java
 auto mode
 
 manual mode
+
+‵sudo update-alternatives --config java‵
 
 配置：
 
@@ -605,13 +605,48 @@ sudo mysqladmin -p -u root version
 
 - 安装 Hadoop、Yarn、Spark
 
+- 安装 gnome-sushi 预览
 
+- 安装 RescureTime
 
+- Environment Variable
+
+Session-wide:
+
+`~/.pam_environment`
+
+`~/.profile`: 优先使用
+
+```shell
+export FOO=bar
+export PATH="$PATH:$HOME/MyPrograms"
+```
+
+`~/.bashrc`： non-login shells
+
+System-wide environment variables
+
+`/etc/environment`
+
+```shell
+FOO=bar
+```
+
+**Note:** Variable expansion does not work in `/etc/environment`
+
+`/etc/profile.d/*.sh`
+
+Files with the .sh extension in the `/etc/profile.d` directory get executed whenever a bash login shell is entered (e.g. when logging in from the console or over ssh), as well as by the DisplayManager when the desktop session loads.
+
+You can for instance create the file `/etc/profile.d/myenvvars.sh` and set variables like this:
+
+```shell
+export JAVA_HOME=/usr/lib/jvm/jdk1.7.0
+export PATH=$PATH:$JAVA_HOME/bin
+```
 
 ## Other Problems
 
 输入密码后不能进入桌面
 
 https://askubuntu.com/questions/1086367/ubuntu-18-04-login-window-loop
-
-
