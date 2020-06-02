@@ -55,6 +55,7 @@ https://askubuntu.com/questions/1043763/system-can-not-reboot-after-completing-i
 ## partition recommendation
 
 Total: 256 GB
+如果需要的话，还可以分配更多空间
 
 UEFI System:
 
@@ -160,8 +161,6 @@ unrar x tecmint.rar
 rar a tecmint.rar tecmint
 ```
 
-
-
 - Java 环境
 
 https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
@@ -188,6 +187,8 @@ java
 auto mode
 
 manual mode
+
+‵sudo update-alternatives --config java‵
 
 配置：
 
@@ -511,6 +512,16 @@ sudo apt-get install sshfs
 ```
 
 - cuda 安装
+
+http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
+
+https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal
+
+~/.profile
+```shell
+export PATH="$PATH:/usr/local/cuda-10.2/bin"
+```
+
 - Home-Templates 添加
 
 常用 CSVDocument.csv, HTMLPage.html, Markdown.md, NewTextFile.txt, PythonScript.py, ShellScript.sh
@@ -527,8 +538,13 @@ sudo apt install filezilla
 ```shell
 sudo snap install postman
 ```
+too slow
 
 - Latex
+
+```shell
+sudo apt-get install texlive-full
+```
 
 - GNOME Dictionary
 
@@ -559,21 +575,80 @@ sudo apt-get autoremove
 - Docker 安装
 - HDFS 安装
 
+```shell
+sudo apt update
+sudo apt install mysql-server
+sudo mysql_secure_installation
+```
 
+Adjusting User Authentication and Privileges.
+```shell
+sudo mysql
+SELECT user,authentication_string,plugin,host FROM mysql.user;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+FLUSH PRIVILEGES;
+SELECT user,authentication_string,plugin,host FROM mysql.user;
+exit
+```
 
+Testing MySQL
 
+```shell
+systemctl status mysql.service
+```
+
+If MySQL isn’t running, you can start it with `sudo systemctl start mysql`.
+
+using the mysqladmin tool
+
+```shell
+sudo mysqladmin -p -u root version
+```
+
+- 安装 Hadoop、Yarn、Spark
+
+- 安装 gnome-sushi 预览
+
+- 安装 RescureTime
+
+- Environment Variable
+
+Session-wide:
+
+`~/.pam_environment`
+
+`~/.profile`: 优先使用
+
+```shell
+export FOO=bar
+export PATH="$PATH:$HOME/MyPrograms"
+```
+
+`~/.bashrc`： non-login shells
+
+System-wide environment variables
+
+`/etc/environment`
+
+```shell
+FOO=bar
+```
+
+**Note:** Variable expansion does not work in `/etc/environment`
+
+`/etc/profile.d/*.sh`
+
+Files with the .sh extension in the `/etc/profile.d` directory get executed whenever a bash login shell is entered (e.g. when logging in from the console or over ssh), as well as by the DisplayManager when the desktop session loads.
+
+You can for instance create the file `/etc/profile.d/myenvvars.sh` and set variables like this:
+
+```shell
+export JAVA_HOME=/usr/lib/jvm/jdk1.7.0
+export PATH=$PATH:$JAVA_HOME/bin
+```
 
 ## Other Problems
 
 输入密码后不能进入桌面
 
 https://askubuntu.com/questions/1086367/ubuntu-18-04-login-window-loop
-
-
-
-
-
-
-
-
-
