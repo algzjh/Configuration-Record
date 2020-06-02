@@ -337,6 +337,7 @@ sudo npm install -g typescript
 sudo apt update
 sudo apt install git
 git --version
+git config --global core.quotepath false # 解决 git status 中文乱码 
 ```
 
 - 珂雪尚往，参见 monocloud 的指南，Network Proxy Settings - Manual
