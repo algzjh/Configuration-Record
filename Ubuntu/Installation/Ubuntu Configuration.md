@@ -555,7 +555,9 @@ sudo apt-get clean
 sudo apt-get autoremove
 ```
 
-- 安装 MySQL
+- 安装 MySQL、MongoDB
+- Docker 安装
+- HDFS 安装
 
 
 
