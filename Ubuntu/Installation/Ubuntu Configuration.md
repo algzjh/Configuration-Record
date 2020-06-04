@@ -609,6 +609,9 @@ sudo mysqladmin -p -u root version
 
 - 安装 RescureTime
 
+Ubuntu Usage:
+After installing the package, open terminal and run the command `rescuetime`, and enter your email
+
 - Environment Variable
 
 Session-wide:
