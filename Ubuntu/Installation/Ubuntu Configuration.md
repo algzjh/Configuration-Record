@@ -283,7 +283,17 @@ sudo update-alternatives --config x-terminal-emulator
 sudo apt install zsh
 zsh --version
 chsh -s $(which zsh)
+log out and login back again
+echo $SHELL
 ```
+
+安装 oh my zsh
+https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+sh install.sh
+
+
+配置：
+.zshrc
 
 zsh-newuser-install
 
@@ -649,7 +659,10 @@ export FOO=bar
 export PATH="$PATH:$HOME/MyPrograms"
 ```
 
+Other files
 `~/.bashrc`： non-login shells
+`~/.bash_profile`
+`~/.bash_login`
 
 System-wide environment variables
 
