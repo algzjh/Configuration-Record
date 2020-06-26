@@ -277,6 +277,18 @@ sudo apt-get install terminator
 sudo update-alternatives --config x-terminal-emulator
 ```
 
+- 安装 deepin-terminal
+
+```shell
+sudo apt-get update
+sudo apt-get install deepin-terminal
+# Register deepin terminal
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/deepin-terminal 50
+
+# Select your terminal
+sudo update-alternatives --config x-terminal-emulator
+```
+
 - zsh
 
 ```shell
@@ -294,6 +306,24 @@ sh install.sh
 
 配置：
 .zshrc
+https://medium.com/@abhinavkorpal/bash-profile-vs-bashrc-c52534a787d3
+
+安装字体
+sudo apt-get install fonts-powerline
+pip install --user powerline-status
+sudo apt install powerline
+download from github,https://github.com/powerline/fonts
+./install.sh
+Powerline fonts installed to /home/zjlab/.local/share/fonts
+
+只显示username，在zsh中添加
+```shell
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
+```
 
 zsh-newuser-install
 
@@ -306,6 +336,11 @@ zsh-newuser-install
 .zlogin
 
 
+- 安装 Krusader
+
+```shell
+apt-get install krusader
+```
 
 - 安装 deb
 
