@@ -658,6 +658,28 @@ SELECT user,authentication_string,plugin,host FROM mysql.user;
 exit
 ```
 
+login 
+
+```sql
+mysql -u root -p
+select current_user();
+```
+
+密码政策：
+```sql
+SHOW VARIABLES LIKE 'validate_password%';
+SET GLOBAL validate_password.policy=LOW;
+SELECT user FROM mysql.user;
+GRANT ALL PRIVILEGES ON *.* TO 'zjh_dev'@'localhost' WITH GRANT OPTION;
+exit
+```
+
+改密码：
+
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'NewPassword';
+```
+
 Testing MySQL
 
 ```shell
@@ -671,6 +693,15 @@ using the mysqladmin tool
 ```shell
 sudo mysqladmin -p -u root version
 ```
+
+- 安装 mysql workbench
+https://dev.mysql.com/doc/workbench/en/wb-installing-linux.html
+
+https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/
+
+sudo apt-get install mysql-workbench-community
+
+
 
 - 安装 Hadoop、Yarn、Spark
 
@@ -718,6 +749,12 @@ You can for instance create the file `/etc/profile.d/myenvvars.sh` and set varia
 ```shell
 export JAVA_HOME=/usr/lib/jvm/jdk1.7.0
 export PATH=$PATH:$JAVA_HOME/bin
+```
+
+- 安装 mathpix
+
+```shell
+sudo snap install mathpix-snipping-tool
 ```
 
 ## Other Problems
