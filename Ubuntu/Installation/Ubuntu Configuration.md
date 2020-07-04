@@ -435,6 +435,8 @@ Setting Network Proxy Manual
 
 127.0.0.1    1080
 
+ignore hosts: localhost, 127.0.0.0/8, ::1
+
 SwitchyOmega Option 中只需要设置 socks5
 
 https://github.com/qingshuisiyuan/electron-ssr-backup/blob/master/Ubuntu.md
@@ -450,6 +452,37 @@ https://github.com/shadowsocksrr/electron-ssr/issues/25
 ```shell
 export http_proxy="socks5://127.0.0.1:1080"
 ```
+
+- Qv2ray
+
+下载Qray
+https://github.com/Qv2ray/Qv2ray/releases
+Qv2ray_2.5.0-1_amd64.deb
+Qv2ray.v.2.5.0.linux-x64.AppImage
+
+sudo apt install ./qv2ray_2.5.0-1_amd64.deb
+/home/username/.config/qv2ray/vcore
+
+下载 v2ray-core
+https://github.com/v2ray/v2ray-core/releases
+chmod +x v2ray
+chmod +x v2ctl
+
+V2ray path configuration check passed.
+Current version of V2ray is: 
+V2Ray 4.25.1 (V2Fly, a community-driven edition of V2Ray.) Custom (go1.14.4 linux/amd64)
+
+Tag: outBound_PROXY
+Host: 地址
+Port: 端口
+Type: VMess
+UUID:
+AlterId: 64
+Security加密方式: auto
+Protocol Settings-Transport Protocol: ws
+Protocol Settings-Path: /api/v3/download.getFile
+Protocol Settings-Headers: Host|ws-host
+
 
 - 搜狗输入法
 
