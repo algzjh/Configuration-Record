@@ -370,6 +370,13 @@ npm config get registry
 sudo npm install -g npm@latest
 ```
 
+- TypeScript
+
+```shell
+sudo npm install -g typescript
+tsc -v
+```
+
 - golang
 
 ```shell
@@ -789,6 +796,13 @@ export PATH=$PATH:$JAVA_HOME/bin
 ```shell
 sudo snap install mathpix-snipping-tool
 ```
+
+- 中文字体显示问题
+
+```shell
+sudo vim 64-language-selector-prefer.conf
+```
+
 
 ## Other Problems
 
