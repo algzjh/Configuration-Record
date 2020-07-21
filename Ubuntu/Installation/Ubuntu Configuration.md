@@ -759,6 +759,8 @@ https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/
 
 sudo apt-get install mysql-workbench-community
 
+- 安装 navicat 15
+https://buxuhunao.com/article/how-to-use-navicat15-in-ubuntu.html
 
 
 - 安装 Hadoop、Yarn、Spark
