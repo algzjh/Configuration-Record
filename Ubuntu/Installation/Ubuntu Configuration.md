@@ -823,6 +823,11 @@ sudo snap install mathpix-snipping-tool
 sudo vim 64-language-selector-prefer.conf
 ```
 
+- tree
+sudo apt-get install tree
+
+- flameshot
+apt install flameshot
 
 ## Other Problems
 
