@@ -575,6 +575,8 @@ print(sys.executable)
 
 available for all projects
 
+输入中文：https://zhuanlan.zhihu.com/p/81182213
+
 - IntelliJ
 - Sublime
 
