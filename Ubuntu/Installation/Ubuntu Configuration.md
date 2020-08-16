@@ -370,6 +370,11 @@ npm config get registry
 sudo npm install -g npm@latest
 ```
 
+- yarnpkg
+sudo npm install -g yarn
+yarn config set registry https://registry.npm.taobao.org
+yarn config get registry
+
 - TypeScript
 
 ```shell
@@ -830,6 +835,10 @@ sudo apt-get install tree
 
 - flameshot
 apt install flameshot
+
+- 安装录屏软件
+sudo apt install kazam
+sudo apt install simplescreenrecorder
 
 ## Other Problems
 
