@@ -83,6 +83,8 @@ Legacy BIOS:
 
 ## Ubuntu Polishing
 
+https://zhuanlan.zhihu.com/p/61228593
+
 - 日期语言改成 English，reboot
 - Ubuntu 换成 Other Server 阿里源，Software & Updates
 - 设置阿里 DNS
@@ -371,6 +373,23 @@ npm -v
 npm config set registry https://registry.npm.taobao.org
 npm config get registry
 sudo npm install -g npm@latest
+```
+
+
+https://github.com/nodesource/distributions/blob/master/README.md#debinstall
+```
+# Using Ubuntu
+curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+## Run `sudo apt-get install -y nodejs` to install Node.js 12.x and npm
+## You may also need development tools to build native addons:
+     sudo apt-get install gcc g++ make
+## To install the Yarn package manager, run:
+     curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+     sudo apt-get update && sudo apt-get install yarn
+
 ```
 
 - yarnpkg
