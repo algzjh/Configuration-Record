@@ -862,6 +862,9 @@ apt install flameshot
 sudo apt install kazam
 sudo apt install simplescreenrecorder
 
+- JASP
+https://jasp-stats.org/download/
+
 ## Other Problems
 
 输入密码后不能进入桌面
