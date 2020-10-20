@@ -865,6 +865,9 @@ sudo apt install simplescreenrecorder
 - JASP
 https://jasp-stats.org/download/
 
+- Jamovi
+https://www.jamovi.org/download.html
+
 ## Other Problems
 
 输入密码后不能进入桌面
