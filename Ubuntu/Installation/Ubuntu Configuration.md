@@ -862,6 +862,20 @@ apt install flameshot
 sudo apt install kazam
 sudo apt install simplescreenrecorder
 
+- github CLI
+https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+
+```shell
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+sudo apt-add-repository https://cli.github.com/packages
+sudo apt update
+sudo apt install gh
+```
+
+- mendeley
+
+https://www.mendeley.com/download-desktop-new/#download
+
 ## Other Problems
 
 输入密码后不能进入桌面
