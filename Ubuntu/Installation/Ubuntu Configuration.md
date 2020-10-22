@@ -875,6 +875,11 @@ sudo apt install gh
 - mendeley
 
 https://www.mendeley.com/download-desktop-new/#download
+- JASP
+https://jasp-stats.org/download/
+
+- Jamovi
+https://www.jamovi.org/download.html
 
 ## Other Problems
 
