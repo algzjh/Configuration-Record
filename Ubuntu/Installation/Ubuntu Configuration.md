@@ -337,6 +337,8 @@ zsh-newuser-install
 
 .zlogin
 
+- VS Code terminal powerline
+terminal.integrated.fontFamily: 'DejaVu Sans Mono for Powerline'
 
 - 安装 Krusader
 
@@ -880,6 +882,9 @@ https://jasp-stats.org/download/
 
 - Jamovi
 https://www.jamovi.org/download.html
+
+- Xmind
+https://www.xmind.net/
 
 ## Other Problems
 
