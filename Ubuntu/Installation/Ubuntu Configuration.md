@@ -920,6 +920,11 @@ sudo apt install gh
 - mendeley
 
 https://www.mendeley.com/download-desktop-new/#download
+
+- Zotero
+
+https://github.com/retorquere/zotero-deb
+
 - JASP
 https://jasp-stats.org/download/
 
