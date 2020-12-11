@@ -934,6 +934,11 @@ https://www.jamovi.org/download.html
 - Xmind
 https://www.xmind.net/
 
+
+- nutstore
+install from source code
+https://www.jianguoyun.com/s/downloads/linux
+
 ## Other Problems
 
 输入密码后不能进入桌面
