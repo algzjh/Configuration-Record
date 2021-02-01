@@ -745,6 +745,20 @@ too slow
 sudo apt-get install texlive-full
 ```
 
+- texstudio
+
+```shell
+sudo add-apt-repository ppa:sunderme/texstudio
+sudo apt-get update
+
+# ustc镜像有ppa的反向代理
+/etc/apt/sources.list.d/sunderme-ubuntu-texstudio-focal.list
+# 只需要将其中的http://ppa.launchpad.net替换为http://launchpad.proxy.ustclug.org就行。
+sudo apt-get update
+sudo apt-get install texstudio
+```
+
+
 - GNOME Dictionary
 
 ```shell
