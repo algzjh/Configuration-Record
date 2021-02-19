@@ -583,12 +583,16 @@ $ sudo apt-get install qv2ray
 
 - 搜狗输入法
 
+https://pinyin.sogou.com/linux/help.php
+
 sogou linux 官网下载 deb
 
 安装
 
 ```shell
 sudo apt install ./sogoupinyin_2.3.1.0112_amd64.deb
+# sudo dpkg -i sogoupinyin_版本号_amd64.deb
+# sudo apt -f install
 ```
 
 Settings-Region & Language - Manage Installed Languages - Keyboard input method system - fcitx 
