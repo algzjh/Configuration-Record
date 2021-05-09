@@ -50,6 +50,10 @@ https://askubuntu.com/questions/1043763/system-can-not-reboot-after-completing-i
 
 这样可以安装显卡驱动和一些多媒体编码解码软件
 
+- 实验室内部需要配置网络
+20.04 使用 netplan 作为网络管理工具
+https://segmentfault.com/a/1190000023426677
+https://linux265.com/news/6376.html
 
 
 ## partition recommendation
@@ -154,6 +158,12 @@ sudo apt update
 sudo apt install exfat-fuse exfat-utils
 ```
 
+- 安装 zip, unzip
+
+```
+sudo apt-get install zip unzip
+```
+
 - 安装 unrar
 
 ```shell
@@ -233,6 +243,7 @@ echo $JAVA_HOME
 ```
 
 安装 OpenJDK
+更加方便
 
 ```shell
 sudo apt-get install openjdk-8-jdk
@@ -291,6 +302,24 @@ sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emula
 sudo update-alternatives --config x-terminal-emulator
 ```
 
+- git
+
+安装 git
+
+```shell
+sudo apt update
+sudo apt install git
+git --version
+git config --global core.quotepath false # 解决 git status 中文乱码 
+```
+
+- curl & wget
+
+```
+sudo apt install curl
+sudo apt install wget
+```
+
 - zsh
 
 ```shell
@@ -300,6 +329,9 @@ chsh -s $(which zsh)
 log out and login back again
 echo $SHELL
 ```
+
+zsh newuser config
+`~/.zshrc`
 
 安装 oh my zsh
 https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
@@ -311,12 +343,25 @@ sh install.sh
 https://medium.com/@abhinavkorpal/bash-profile-vs-bashrc-c52534a787d3
 
 安装字体
+```
+# clone
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
+```
+
+```
 sudo apt-get install fonts-powerline
 pip install --user powerline-status
 sudo apt install powerline
 download from github,https://github.com/powerline/fonts
 ./install.sh
 Powerline fonts installed to /home/zjlab/.local/share/fonts
+```
 
 只显示username，在zsh中添加
 ```shell
@@ -337,6 +382,11 @@ zsh-newuser-install
 
 .zlogin
 
+- VS Code
+https://code.visualstudio.com/docs/setup/linux
+
+sudo apt install ./<file>.deb
+
 - VS Code terminal powerline
 terminal.integrated.fontFamily: 'DejaVu Sans Mono for Powerline'
 
@@ -349,19 +399,113 @@ apt-get install krusader
 - 安装 deb
 
 ```shell
-sudo apt install ./name.deb
+sudo apt install ./name.deb # 推荐
 or
 sudo dpkg -i /path/to/deb/file
 ```
 
 - 安装 Chrome，同步 Google 账号信息
 
+make google chrome the default browser
+
 ```shell
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb
 ```
 
+- Qv2ray
+
+下载Qray
+https://github.com/Qv2ray/Qv2ray/releases
+Qv2ray_2.5.0-1_amd64.deb
+Qv2ray.v.2.5.0.linux-x64.AppImage
+
+sudo apt install ./qv2ray_2.5.0-1_amd64.deb
+/home/username/.config/qv2ray/vcore
+
+下载 v2ray-core
+
+https://github.com/v2ray/v2ray-core/releases
+
+https://qv2ray.net/getting-started/step2.html#download-v2ray-core-files
+
+chmod +x v2ray
+
+chmod +x v2ctl
+
+V2ray path configuration check passed.
+Current version of V2ray is: 
+V2Ray 4.25.1 (V2Fly, a community-driven edition of V2Ray.) Custom (go1.14.4 linux/amd64)
+
+Tag: outBound_PROXY
+Host: 地址
+Port: 端口
+Type: VMess
+UUID:
+AlterId: 64
+Security加密方式: auto
+Protocol Settings-Transport Protocol: ws
+Protocol Settings-Path: /api/v3/download.getFile
+Protocol Settings-Headers: Host|ws-host
+
+Qv2ray Debian Repository
+
+http://qv2ray.net/debian/
+
+FastGit Mirror
+
+```shell
+# Install some prerequisites needed by adding GPG public keys
+$ sudo apt-get install gnupg ca-certificates
+
+# Import our GPG key:
+$ curl -sS https://qv2ray.github.io/debian/pubkey.gpg | sudo apt-key add -
+
+# Add the our official APT repository:
+$ echo "deb https://qv2ray.github.io/debian/ stable main" | sudo tee /etc/apt/sources.list.d/qv2ray.list
+
+# echo "deb https://qv2ray.github.io/debian/ unstable main" | sudo tee /etc/apt/sources.list.d/qv2ray.list (for debian testing/unstable and Ubuntu 20.10+)
+
+# To update the APT index:
+$ sudo apt-get update
+
+# You can install Qv2ray from APT now:
+$ sudo apt-get install qv2ray
+```
+
+Qv2ray Groups 填入订阅地址
+
+SwitchyOmega 配置
+
 - nvm
+
+oh my zsh 安装插件：
+https://github.com/lukechilds/zsh-nvm
+
+```
+git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+# .zshrc 中 plugins 添加 zsh-nvm
+source ~/.zshrc
+```
+
+https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04
+
+nvm 国内镜像
+
+```
+# 添加入 zshrc
+export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
+```
+
+nvm、node、npm 区别：
+https://www.jianshu.com/p/db8af76ff9ae
+
+设置nodejs镜像和npm镜像
+
+```
+npm config set registry https://registry.npm.taobao.org
+npm config get registry
+```
 
 https://github.com/nvm-sh/nvm
 
@@ -369,6 +513,9 @@ https://github.com/nvm-sh/nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
 # or
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
+
+chmod +x install.sh
+sudo ./install.sh
 
 # add to ~/.zshrc
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -438,14 +585,21 @@ sudo apt-get install -y nodejs
 ```
 
 - yarnpkg
-sudo npm install -g yarn
+
+https://stackoverflow.com/questions/52174381/yarn-not-installing-in-nvm-version-node-version
+
+npm install -g yarn
+
+yarn --version
+
 yarn config set registry https://registry.npm.taobao.org
+
 yarn config get registry
 
 - TypeScript
 
 ```shell
-sudo npm install -g typescript
+npm install -g typescript
 tsc -v
 ```
 
@@ -471,18 +625,7 @@ rails --version
 - typescript
 
 ```shell
-sudo npm install -g typescript
-```
-
-- git
-
-安装 git
-
-```shell
-sudo apt update
-sudo apt install git
-git --version
-git config --global core.quotepath false # 解决 git status 中文乱码 
+npm install -g typescript
 ```
 
 - 珂雪尚往，参见 monocloud 的指南，Network Proxy Settings - Manual
@@ -532,55 +675,6 @@ https://github.com/shadowsocksrr/electron-ssr/issues/25
 export http_proxy="socks5://127.0.0.1:1080"
 ```
 
-- Qv2ray
-
-下载Qray
-https://github.com/Qv2ray/Qv2ray/releases
-Qv2ray_2.5.0-1_amd64.deb
-Qv2ray.v.2.5.0.linux-x64.AppImage
-
-sudo apt install ./qv2ray_2.5.0-1_amd64.deb
-/home/username/.config/qv2ray/vcore
-
-下载 v2ray-core
-https://github.com/v2ray/v2ray-core/releases
-chmod +x v2ray
-chmod +x v2ctl
-
-V2ray path configuration check passed.
-Current version of V2ray is: 
-V2Ray 4.25.1 (V2Fly, a community-driven edition of V2Ray.) Custom (go1.14.4 linux/amd64)
-
-Tag: outBound_PROXY
-Host: 地址
-Port: 端口
-Type: VMess
-UUID:
-AlterId: 64
-Security加密方式: auto
-Protocol Settings-Transport Protocol: ws
-Protocol Settings-Path: /api/v3/download.getFile
-Protocol Settings-Headers: Host|ws-host
-
-Qv2ray Debian Repository
-```shell
-# Install some prerequisites needed by adding GPG public keys
-$ sudo apt-get install gnupg ca-certificates
-
-# Import our GPG key:
-$ curl -sS https://qv2ray.github.io/debian/pubkey.gpg | sudo apt-key add -
-
-# Add the our official APT repository:
-$ echo "deb https://qv2ray.github.io/debian/ stable main" | sudo tee /etc/apt/sources.list.d/qv2ray.list
-# echo "deb https://qv2ray.github.io/debian/ unstable main" | sudo tee /etc/apt/sources.list.d/qv2ray.list (for debian testing/unstable and Ubuntu 20.10+)
-
-# To update the APT index:
-$ sudo apt-get update
-
-# You can install Qv2ray from APT now:
-$ sudo apt-get install qv2ray
-```
-
 - 搜狗输入法
 
 https://pinyin.sogou.com/linux/help.php
@@ -590,10 +684,15 @@ sogou linux 官网下载 deb
 安装
 
 ```shell
+sudo apt-get install fcitx
 sudo apt install ./sogoupinyin_2.3.1.0112_amd64.deb
 # sudo dpkg -i sogoupinyin_版本号_amd64.deb
 # sudo apt -f install
 ```
+
+input sources 只选 English(US)
+
+Manage Installed Languages中的 language 只选 English (United States) 和 English，不用选汉语，Keyboard input method system 选择 fcitx 
 
 Settings-Region & Language - Manage Installed Languages - Keyboard input method system - fcitx 
 
@@ -654,6 +753,19 @@ available for all projects
 输入中文：https://zhuanlan.zhihu.com/p/81182213
 
 - IntelliJ
+
+- Ubuntu 设置终端走代理
+
+https://www.windsings.com/posts/3c42339d/
+
+```
+export ALL_PROXY=socks5://127.0.0.1:1080
+source ~/.zshrc
+
+alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080" 
+alias unsetproxy="unset ALL_PROXY"
+```
+
 - Sublime
 
 https://www.sublimetext.com/docs/3/linux_repositories.html
@@ -673,9 +785,13 @@ sudo apt-get purge <package-name>
 - 通过 ssh 访问局域网中的 Ubuntu
 
 1. 在 Ubuntu 中安装
+
    `sudo apt-get install openssh-server`
+
    `sudo apt-get install openssh-client`
+
 2. 配置 sshd_config 文件
+
    `sudo vim /etc/ssh/sshd_config`
 
 ```shell
@@ -739,7 +855,8 @@ sudo apt install filezilla
 - 安装 Postman
 
 ```shell
-sudo snap install postman
+snap install postman
+# sudo snap install postman
 ```
 too slow
 
@@ -783,7 +900,7 @@ sudo apt install geogebra-classic
 - 卸载 LibreOffice，安装 WPS
 
 ```shell
-sudo apt-get remove --purge libreoffice*
+sudo apt-get remove --purge 'libreoffice*'
 sudo apt-get clean
 sudo apt-get autoremove
 ```
@@ -911,6 +1028,8 @@ sudo snap install mathpix-snipping-tool
 
 - 中文字体显示问题
 
+https://xlee00.github.io/2019/03/26/Ubuntu%E4%B8%8A-%E9%97%A8-%E5%A4%8D-%E5%AD%97%E6%98%BE%E7%A4%BA%E4%B8%8D%E6%AD%A3%E7%A1%AE/
+
 ```shell
 sudo vim 64-language-selector-prefer.conf
 ```
@@ -919,13 +1038,17 @@ sudo vim 64-language-selector-prefer.conf
 sudo apt-get install tree
 
 - flameshot
-apt install flameshot
+
+sudo apt install flameshot
 
 - 安装录屏软件
+
 sudo apt install kazam
+
 sudo apt install simplescreenrecorder
 
 - github CLI
+
 https://github.com/cli/cli/blob/trunk/docs/install_linux.md
 
 ```shell
@@ -939,9 +1062,29 @@ sudo apt install gh
 
 https://www.mendeley.com/download-desktop-new/#download
 
+- nutstore
+install from source code
+https://www.jianguoyun.com/s/downloads/linux
+
+```shell
+sudo dpkg -i nautilus_nutstore_amd64.deb
+sudo apt-get install -f
+```
+
 - Zotero
 
 https://github.com/retorquere/zotero-deb
+
+preferences 中的Sync 登录 Zotero 账号，取消 File Syncing 中的选中状态，Export 中选择 IEEE，Advanced 中的 Files and Folders 中选择 Linked Attachment Base Directory 中的 Base directory 设置为Nutstore Files/zotero，Data Directory Location 选择 Default。
+
+安装 zotfile 插件
+打开 Zotfile Preferences，Source Folder for Attaching New Files 中设置为 Downloads，Location of Files 设置为 Custom Location：Nutstore Files-zotero，
+
+```shell
+wget -qO- https://github.com/retorquere/zotero-deb/releases/download/apt-get/install.sh | sudo bash
+sudo apt update
+sudo apt install zotero
+```
 
 - JASP
 https://jasp-stats.org/download/
@@ -952,11 +1095,12 @@ https://www.jamovi.org/download.html
 - Xmind
 https://www.xmind.net/
 
+`sudo snap install xmind`
 
-- nutstore
-install from source code
-https://www.jianguoyun.com/s/downloads/linux
 
+- 百度网盘
+
+https://pan.baidu.com/download#pan
 ## Other Problems
 
 输入密码后不能进入桌面
