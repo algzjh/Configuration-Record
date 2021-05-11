@@ -477,6 +477,21 @@ Qv2ray Groups 填入订阅地址
 
 SwitchyOmega 配置
 
+
+- terminal proxy
+
+zshrc 中写入
+
+```shell
+alias setproxy="export http_proxy=socks5://127.0.0.1:8889 https_proxy="socks5://127.0.0.1:8889"
+alias unsetproxy="unset http_proxy https_proxy"
+```
+
+socks5好像有点问题，要 http
+每次要用的时候输入setproxy，不用了就unsetproxy。
+
+测试`curl cip.cc`
+
 - nvm
 
 oh my zsh 安装插件：
@@ -550,9 +565,6 @@ load-nvmrc
 # verify installation
 command -v nvm
 ```
-
-
-
 
 - node and npm
 
@@ -905,6 +917,12 @@ sudo apt-get clean
 sudo apt-get autoremove
 ```
 
+WPS 缺失字体：https://blog.desdelinux.net/en/error-wps-office-missing-font-wingdings-wingdings-2-wingdin-solucionado-en-linux-mint/
+
+```shell
+sudo fc-cache -vfs
+```
+
 - 安装 MySQL、MongoDB
 - Docker 安装
 - HDFS 安装
@@ -1101,6 +1119,16 @@ https://www.xmind.net/
 - 百度网盘
 
 https://pan.baidu.com/download#pan
+
+- safe eyes
+
+https://slgobinath.github.io/SafeEyes/
+
+手动添加 ppa （上面成功了就不用）
+
+https://blog.zackad.dev/en/2017/08/17/add-ppa-simple-way.html
+
+
 ## Other Problems
 
 输入密码后不能进入桌面
