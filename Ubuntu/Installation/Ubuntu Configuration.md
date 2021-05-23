@@ -483,7 +483,7 @@ SwitchyOmega 配置
 zshrc 中写入
 
 ```shell
-alias setproxy="export http_proxy=socks5://127.0.0.1:8889 https_proxy="socks5://127.0.0.1:8889"
+alias setproxy="export http_proxy=http://127.0.0.1:8889 https_proxy="http://127.0.0.1:8889"
 alias unsetproxy="unset http_proxy https_proxy"
 ```
 
@@ -1129,6 +1129,9 @@ https://slgobinath.github.io/SafeEyes/
 https://blog.zackad.dev/en/2017/08/17/add-ppa-simple-way.html
 
 
+- Spotify
+
+https://www.spotify.com/us/download/linux/
 ## Other Problems
 
 输入密码后不能进入桌面
