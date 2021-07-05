@@ -404,6 +404,12 @@ or
 sudo dpkg -i /path/to/deb/file
 ```
 
+- 删除 deb
+
+```shell
+sudo apt purge "software name"
+```
+
 - 安装 Chrome，同步 Google 账号信息
 
 make google chrome the default browser
@@ -607,6 +613,13 @@ yarn --version
 yarn config set registry https://registry.npm.taobao.org
 
 yarn config get registry
+
+配置 yarn global bin 路径到环境变量
+
+```shell
+# in zshrc
+export PATH="$PATH:$(yarn global bin)"
+```
 
 - TypeScript
 
@@ -1132,6 +1145,30 @@ https://blog.zackad.dev/en/2017/08/17/add-ppa-simple-way.html
 - Spotify
 
 https://www.spotify.com/us/download/linux/
+需要设置 proxy
+
+- netease music
+
+https://music.163.com/#/download
+
+- qq music
+
+https://y.qq.com/download/download.html
+
+- snap & snap-store
+
+```shell
+sudo apt update
+sudo apt install snapd
+sudo snap install snap-store
+```
+
+- vlc
+
+```shell
+sudo snap install vlc
+```
+
 ## Other Problems
 
 输入密码后不能进入桌面
