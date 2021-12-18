@@ -1178,6 +1178,25 @@ sudo snap install snap-store
 sudo snap install vlc
 ```
 
+- qBittorrent
+
+https://blog.zackad.dev/en/2017/08/17/add-ppa-simple-way.html
+
+```shell
+# add ppa manually to /etc/apt/source.list
+deb http://ppa.launchpad.net/qbittorrent-team/qbittorrent-stable/ubuntu focal main 
+deb-src http://ppa.launchpad.net/qbittorrent-team/qbittorrent-stable/ubuntu focal main 
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 401E8827DA4E93E44C7D01E6D35164147CA69FC4
+
+```
+  
+```shell
+sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
+sudo apt update
+sudo apt install qbittorrent
+```
+
 ## Other Problems
 
 输入密码后不能进入桌面
