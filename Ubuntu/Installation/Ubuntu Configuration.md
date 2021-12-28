@@ -1197,6 +1197,11 @@ sudo apt update
 sudo apt install qbittorrent
 ```
 
+- AirPods Pro
+
+enable dual mode in /etc/bluetooth/main.conf
+sudo /etc/init.d/bluetooth restart
+
 ## Other Problems
 
 输入密码后不能进入桌面
