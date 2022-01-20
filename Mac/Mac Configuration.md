@@ -32,6 +32,7 @@ https://docs.dler.io/black-hole/shi-yong-jiao-cheng/macos/clashx
 - 搜狗输入法
 - visual studio code
 terminal.integrated.fontFamily: 'Source Code Pro for Powerline'
+- Foxit Reader
 
 
 ## 环境配置
@@ -83,3 +84,6 @@ https://yarnpkg.com/getting-started/install
 ```shell
 corepack enable
 ```
+# Chrome 插件
+
+NewsReader

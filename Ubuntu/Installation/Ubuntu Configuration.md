@@ -1202,6 +1202,25 @@ sudo apt install qbittorrent
 enable dual mode in /etc/bluetooth/main.conf
 sudo /etc/init.d/bluetooth restart
 
+- Musixmatch
+  
+```shell
+sudo snap install musixmatch
+```
+
+- Enpass
+
+```shell
+sudo echo "deb https://apt.enpass.io/ stable main" > \
+  /etc/apt/sources.list.d/enpass.list
+
+wget -O - https://apt.enpass.io/keys/enpass-linux.key | sudo tee /etc/apt/trusted.gpg.d/enpass.asc
+
+sudo apt-get update
+sudo apt-get install enpass
+```
+
+
 ## Other Problems
 
 输入密码后不能进入桌面
