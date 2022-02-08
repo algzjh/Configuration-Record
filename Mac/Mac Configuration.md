@@ -84,6 +84,14 @@ https://yarnpkg.com/getting-started/install
 ```shell
 corepack enable
 ```
+
 # Chrome 插件
 
 NewsReader
+
+# VS Code
+
+python 语言支持
+
+新建Conda环境
+`conda create -n python3.9 python=3.9`

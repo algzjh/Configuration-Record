@@ -1,6 +1,6 @@
 # Ubuntu Dual Boot Configuration
 
-下载 Ubuntu 镜像：使用华为云的镜像下载，这样速度更快
+下载 Ubuntu 镜像：使用浙江大学/华为云的镜像下载，这样速度更快
 
 https://launchpad.net/ubuntu/+mirror/mirrors.huaweicloud.com-release
 
@@ -57,6 +57,10 @@ https://linux265.com/news/6376.html
 
 
 ## partition recommendation
+
+推荐使用LVM!!
+
+https://www.cyberciti.biz/faq/howto-add-disk-to-lvm-volume-on-linux-to-increase-size-of-pool/
 
 Total: 256 GB
 如果需要的话，还可以分配更多空间
@@ -173,6 +177,211 @@ unrar x tecmint.rar
 rar a tecmint.rar tecmint
 ```
 
+- git
+
+安装 git
+
+```shell
+sudo apt update
+sudo apt install git
+git --version
+git config --global core.quotepath false # 解决 git status 中文乱码 
+```
+
+- 安装 Chrome，同步 Google 账号信息
+
+make google chrome the default browser
+
+```shell
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+```
+
+- shell
+
+login shell: 使用本地终端或网络ssh登录一台主机时，启动的Shell是login Shell
+non-login shell: 登录之后，输入bash再启动一个Shell，这个Shell是non—login的
+interactive shell: 交互式
+non-interactive shell: 脚本
+
+https://cjting.me/2020/08/16/shell-init-type/#zsh
+
+- .zshenv: 总是被读取,所以通常把$PATH, $EDITOR等变量写在这里,这样无论是在shell交互,或者运行程序都会读取此文件
+- .zshrc: 主要用在交互shell,所以主要是为shell服务的,比如对shell做的一些个性化设置都可以在这里写入
+- .zlogin: 在login shell的时候读取,所以比如X系统启动的时候会读取此文件,所以不会再运行中重复读取
+- .zprofile: 是给ksh用户的一个.zlogin的替代品,所以我们如果使用了.zlogin就不必再关心此文件
+- .zlogout: 退出终端的时候读取,用于做一些清理工作,一般我们也用不上
+
+顺序：.zshenv → [.zprofile if login] → [.zshrc if interactive] → [.zlogin if login] → [.zlogout sometimes].
+
+简单来说，在 .zshenv 文件中初始化各种环境变量，里面应该全部都是 export NAME=VALUE 这样的语句。
+
+在 .zshrc 文件中，初始化交互模式要用的东西，包括
+
+各种 function 定义
+setopt 终端属性配置
+各种 alias 定义
+PS1 提示符配置
+命令补全脚本加载
+各种高亮和颜色配置，比如 zsh-syntax-highlighting
+快捷键设置
+autojump 等等
+
+- golang
+
+```shell
+sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
+vim ./profile
+Add /usr/local/go/bin to the PATH environment variable
+export PATH=$PATH:/usr/local/go/bin
+source $HOME/.profile.
+```
+
+- lantern
+
+如果网络不好，先装lantern
+
+
+- curl & wget
+
+```
+sudo apt install curl
+sudo apt install wget
+```
+
+- v2ray
+
+https://github.com/v2fly/fhs-install-v2ray/blob/master/README.zh-Hans-CN.md
+
+```shell
+sudo su
+
+sudo systemctl start v2ray.service
+sudo systemctl status v2ray.service
+```
+
+- clash
+
+下载Clash Premium, 设置secret，配置开机自启动
+
+https://zhuanlan.zhihu.com/p/430035973
+https://einverne.github.io/post/2021/03/linux-use-clash.html
+
+```shell
+gzip -dk file.gz
+sudo mv clash /usr/local/bin/clash
+sudo chmod +x /usr/local/bin/clash
+
+sudo touch /etc/systemd/system/clash.service
+
+[Unit]
+Description=Clash Daemon
+
+[Service]
+ExecStart=/usr/local/bin/clash -d /etc/clash/
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+sudo systemctl daemon-reload 
+sudo systemctl enable clash.service
+sudo systemctl start clash.service
+sudo systemctl status clash.service
+```
+
+web UI: http://clash.razord.top/
+
+- zsh
+
+```shell
+sudo apt install zsh
+zsh --version
+chsh -s $(which zsh)
+log out and login back again
+echo $SHELL
+```
+
+zsh newuser config
+2
+`~/.zshrc`
+
+安装 oh my zsh
+https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+sh install.sh
+
+配置：
+.zshrc
+https://medium.com/@abhinavkorpal/bash-profile-vs-bashrc-c52534a787d3
+
+主题：agnoster
+
+安装字体
+```
+# clone
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
+```
+
+```
+sudo apt-get install fonts-powerline
+# pip install --user powerline-status
+# sudo apt install powerline
+# download from github,https://github.com/powerline/fonts
+# ./install.sh
+# Powerline fonts installed to /home/zjlab/.local/share/fonts
+```
+
+只显示username，在zshrc中添加
+```shell
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
+```
+
+zsh-newuser-install
+
+.zshenv
+
+.zprofile: set environment for login shell
+
+.zshrc: set environment for interactive shells, gets loaded after .zprofile
+
+.zlogin
+
+- Ubuntu 设置终端走代理
+
+https://www.windsings.com/posts/3c42339d/
+
+```
+export ALL_PROXY=socks5://127.0.0.1:1080
+source ~/.zshrc
+
+alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080" 
+alias unsetproxy="unset ALL_PROXY"
+```
+
+- terminal proxy
+
+zshrc 中写入
+
+```shell
+alias setproxy="export http_proxy=http://127.0.0.1:8889 https_proxy="http://127.0.0.1:8889"
+alias unsetproxy="unset http_proxy https_proxy"
+```
+
+socks5好像有点问题，要 http
+每次要用的时候输入setproxy，不用了就unsetproxy。
+
+测试`curl cip.cc`
+
 - Java 环境
 
 https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
@@ -275,6 +484,10 @@ conda config --set show_channel_urls yes
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
 ```
 
+```shell
+conda install scikit-learn-intelex
+```
+
 - Conda Python2 Env
 
 ```shell
@@ -300,17 +513,7 @@ sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emula
 
 # Select your terminal
 sudo update-alternatives --config x-terminal-emulator
-```
-
-- git
-
-安装 git
-
-```shell
-sudo apt update
-sudo apt install git
-git --version
-git config --global core.quotepath false # 解决 git status 中文乱码 
+# auto mode
 ```
 
 - GitHub CLI
@@ -322,79 +525,12 @@ sudo apt update
 sudo apt install gh
 ```
 
-- curl & wget
-
-```
-sudo apt install curl
-sudo apt install wget
-```
-
-- zsh
-
-```shell
-sudo apt install zsh
-zsh --version
-chsh -s $(which zsh)
-log out and login back again
-echo $SHELL
-```
-
-zsh newuser config
-`~/.zshrc`
-
-安装 oh my zsh
-https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-sh install.sh
-
-
-配置：
-.zshrc
-https://medium.com/@abhinavkorpal/bash-profile-vs-bashrc-c52534a787d3
-
-安装字体
-```
-# clone
-git clone https://github.com/powerline/fonts.git --depth=1
-# install
-cd fonts
-./install.sh
-# clean-up a bit
-cd ..
-rm -rf fonts
-```
-
-```
-sudo apt-get install fonts-powerline
-pip install --user powerline-status
-sudo apt install powerline
-download from github,https://github.com/powerline/fonts
-./install.sh
-Powerline fonts installed to /home/zjlab/.local/share/fonts
-```
-
-只显示username，在zsh中添加
-```shell
-prompt_context() {
-  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
-  fi
-}
-```
-
-zsh-newuser-install
-
-.zshenv
-
-.zprofile
-
-.zshrc
-
-.zlogin
-
 - VS Code
 https://code.visualstudio.com/docs/setup/linux
 
 sudo apt install ./<file>.deb
+
+sudo snap install code --classic
 
 - VS Code terminal powerline
 terminal.integrated.fontFamily: 'DejaVu Sans Mono for Powerline'
@@ -417,15 +553,6 @@ sudo dpkg -i /path/to/deb/file
 
 ```shell
 sudo apt purge "software name"
-```
-
-- 安装 Chrome，同步 Google 账号信息
-
-make google chrome the default browser
-
-```shell
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install ./google-chrome-stable_current_amd64.deb
 ```
 
 - Qv2ray
@@ -492,20 +619,6 @@ Qv2ray Groups 填入订阅地址
 
 SwitchyOmega 配置
 
-
-- terminal proxy
-
-zshrc 中写入
-
-```shell
-alias setproxy="export http_proxy=http://127.0.0.1:8889 https_proxy="http://127.0.0.1:8889"
-alias unsetproxy="unset http_proxy https_proxy"
-```
-
-socks5好像有点问题，要 http
-每次要用的时候输入setproxy，不用了就unsetproxy。
-
-测试`curl cip.cc`
 
 - nvm
 
@@ -635,16 +748,6 @@ export PATH="$PATH:$(yarn global bin)"
 ```shell
 npm install -g typescript
 tsc -v
-```
-
-- golang
-
-```shell
-sudo tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
-sudo vim /etc/profile
-Add /usr/local/go/bin to the PATH environment variable
-export PATH=$PATH:/usr/local/go/bin
-source $HOME/.profile.
 ```
 
 - ruby
@@ -788,21 +891,11 @@ available for all projects
 
 - IntelliJ
 
-- Ubuntu 设置终端走代理
-
-https://www.windsings.com/posts/3c42339d/
-
-```
-export ALL_PROXY=socks5://127.0.0.1:1080
-source ~/.zshrc
-
-alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080" 
-alias unsetproxy="unset ALL_PROXY"
-```
-
 - Sublime
 
 https://www.sublimetext.com/docs/3/linux_repositories.html
+
+sudo snap install sublime-text --classic
 
 - Typora：比较慢
 
@@ -836,9 +929,13 @@ PasswordAuthentication yes
 
 3. 启动 ssh 服务
    `sudo service ssh start`
+
    可以通过以下命令查看 ssh 服务是否在运行
+
    `ps -aux | grep ssh`
+
    `sudo apt install net-tools`
+
    `netstat -a | grep ssh`
 
 4. 远程连接
@@ -935,8 +1032,8 @@ sudo apt install geogebra-classic
 
 ```shell
 sudo apt-get remove --purge 'libreoffice*'
-sudo apt-get clean
-sudo apt-get autoremove
+# sudo apt-get clean
+# sudo apt-get autoremove
 ```
 
 WPS 缺失字体：https://blog.desdelinux.net/en/error-wps-office-missing-font-wingdings-wingdings-2-wingdin-solucionado-en-linux-mint/
@@ -1060,6 +1157,12 @@ export JAVA_HOME=/usr/lib/jvm/jdk1.7.0
 export PATH=$PATH:$JAVA_HOME/bin
 ```
 
+- AppImageLauncher
+
+https://github.com/TheAssassin/AppImageLauncher/wiki/Install-on-Ubuntu-or-Debian
+
+/etc/apt/sources.list.d
+
 - 安装 mathpix
 
 ```shell
@@ -1118,7 +1221,7 @@ https://github.com/retorquere/zotero-deb
 preferences 中的Sync 登录 Zotero 账号，取消 File Syncing 中的选中状态，Export 中选择 IEEE，Advanced 中的 Files and Folders 中选择 Linked Attachment Base Directory 中的 Base directory 设置为Nutstore Files/zotero，Data Directory Location 选择 Default。
 
 安装 zotfile 插件
-打开 Zotfile Preferences，Source Folder for Attaching New Files 中设置为 Downloads，Location of Files 设置为 Custom Location：Nutstore Files-zotero，
+打开 Zotfile Preferences，Source Folder for Attaching New Files 中设置为 Downloads，Location of Files 设置为 Custom Location：Nutstore Files-zotero，选中 use subfolder defined by
 
 ```shell
 wget -qO- https://github.com/retorquere/zotero-deb/releases/download/apt-get/install.sh | sudo bash
@@ -1155,6 +1258,8 @@ https://blog.zackad.dev/en/2017/08/17/add-ppa-simple-way.html
 
 https://www.spotify.com/us/download/linux/
 需要设置 proxy
+
+`snap install spotify`
 
 - netease music
 
@@ -1220,6 +1325,21 @@ sudo apt-get update
 sudo apt-get install enpass
 ```
 
+- Apple Music Electron
+
+https://github.com/ciderapp/Apple-Music-Electron
+
+- Albert & Cerebro
+
+- foxit reader
+
+- supervisor
+
+```shell
+sudo apt install supervisor
+sudo systemctl status supervisor
+
+```
 
 ## Other Problems
 
