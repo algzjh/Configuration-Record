@@ -264,13 +264,37 @@ sudo systemctl status v2ray.service
 
 下载Clash Premium, 设置secret，配置开机自启动
 
+https://clash.skk.moe/general
+
+https://cdn.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/
+
+
+```shell
+curl -O https://xxxxx/clash-linux-amd64-2022.01.27.gz
+```
+
 https://zhuanlan.zhihu.com/p/430035973
 https://einverne.github.io/post/2021/03/linux-use-clash.html
 
 ```shell
 gzip -dk file.gz
+mv clash-linux-amd64-v1.7.1 clash
 sudo mv clash /usr/local/bin/clash
 sudo chmod +x /usr/local/bin/clash
+./clash # 下载rule set
+# clash 启动后会在 ~/.config/clash 目录生成配置文件。
+# 如果没有生成可以手动下载替换
+# https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb
+wget --no-parent -r https://cdn.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/
+
+config.yaml
+# ---
+# mixed-port: 30002
+# allow-lan: true
+# mode: Rule
+# log-level: info
+# external-controller: 127.0.0.1:30003
+# secret: "123456"
 
 sudo touch /etc/systemd/system/clash.service
 
@@ -278,7 +302,7 @@ sudo touch /etc/systemd/system/clash.service
 Description=Clash Daemon
 
 [Service]
-ExecStart=/usr/local/bin/clash -d /etc/clash/
+ExecStart=/usr/local/bin/clash -d /home/username/.config/clash
 Restart=on-failure
 
 [Install]
@@ -286,11 +310,22 @@ WantedBy=multi-user.target
 
 sudo systemctl daemon-reload 
 sudo systemctl enable clash.service
+sudo systemctl restart clash.service
 sudo systemctl start clash.service
 sudo systemctl status clash.service
+sudo systemctl stop clash.service
+sudo systemctl disable clash.service
 ```
 
 web UI: http://clash.razord.top/
+
+export https_proxy=http://127.0.0.1:30002 http_proxy=http://127.0.0.1:30002 all_proxy=socks5://127.0.0.1:30002
+
+unset https_proxy http_proxy all_proxy
+
+/home/vai/.config/clash
+
+多用户时移动代理位置指 /etc
 
 - zsh
 

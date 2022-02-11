@@ -29,6 +29,7 @@ https://docs.dler.io/black-hole/shi-yong-jiao-cheng/macos/clashx
 - ezip
 - mathpix snip
 - rest (currently unavailable)
+- time out
 - 搜狗输入法
 - visual studio code
 terminal.integrated.fontFamily: 'Source Code Pro for Powerline'
@@ -83,6 +84,28 @@ https://yarnpkg.com/getting-started/install
 
 ```shell
 corepack enable
+```
+
+- curl & wget
+
+```shell
+brew install wget
+brew install curl
+
+curl is keg-only, which means it was not symlinked into /usr/local,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+If you need to have curl first in your PATH, run:
+  echo 'export PATH="/usr/local/opt/curl/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find curl you may need to set:
+  export LDFLAGS="-L/usr/local/opt/curl/lib"
+  export CPPFLAGS="-I/usr/local/opt/curl/include"
+
+
+zsh completions have been installed to:
+  /usr/local/opt/curl/share/zsh/site-functions
 ```
 
 # Chrome 插件
