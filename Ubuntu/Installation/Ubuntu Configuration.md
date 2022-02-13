@@ -319,13 +319,17 @@ sudo systemctl disable clash.service
 
 web UI: http://clash.razord.top/
 
+防止跨域，chrome浏览器设置flag
+block insecure private network request: disable
+
 export https_proxy=http://127.0.0.1:30002 http_proxy=http://127.0.0.1:30002 all_proxy=socks5://127.0.0.1:30002
 
 unset https_proxy http_proxy all_proxy
 
 /home/vai/.config/clash
 
-多用户时移动代理位置指 /etc
+多用户时可移动代理位置指 /etc 
+
 
 - zsh
 
