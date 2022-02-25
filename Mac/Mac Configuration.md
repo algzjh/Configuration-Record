@@ -34,6 +34,7 @@ https://docs.dler.io/black-hole/shi-yong-jiao-cheng/macos/clashx
 - visual studio code
 terminal.integrated.fontFamily: 'Source Code Pro for Powerline'
 - Foxit Reader
+- Sketch (麦氪搜)
 
 
 ## 环境配置

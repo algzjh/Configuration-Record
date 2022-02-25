@@ -1380,6 +1380,18 @@ sudo systemctl status supervisor
 
 ```
 
+- 门、复等显示问题
+
+修改 /etc/fonts/conf.d/64-language-selector-prefer.conf
+SC，TC, JP
+
+更新字体缓存
+
+fc-cache -fv
+
+注销后登录
+
+
 ## Other Problems
 
 输入密码后不能进入桌面
