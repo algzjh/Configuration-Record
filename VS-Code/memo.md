@@ -65,8 +65,20 @@ git config user.email ""
 git remote set-url origin git@github.com:xxx/xxx.git
 ```
 
+kex_exchange_identification: read: Connection reset by peer
+fatal: Could not read from remote repository.
+解决办法：
+ssh -vT git@github.com
+
 # 多人开发
 
 注意git ssh
 
+# latex
+
+Latex-workshop -> Latex: Recipes
+
+https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile#latex-recipes
+
+pdflatex提前
 

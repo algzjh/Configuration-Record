@@ -281,10 +281,13 @@ gzip -dk file.gz
 mv clash-linux-amd64-v1.7.1 clash
 sudo mv clash /usr/local/bin/clash
 sudo chmod +x /usr/local/bin/clash
+cd /usr/local/bin
 ./clash # 下载rule set
 # clash 启动后会在 ~/.config/clash 目录生成配置文件。
 # 如果没有生成可以手动下载替换
+# 服务器使用config-small
 # https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb
+# 下载rules.zip
 wget --no-parent -r https://cdn.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/
 
 config.yaml
@@ -293,7 +296,8 @@ config.yaml
 # allow-lan: true
 # mode: Rule
 # log-level: info
-# external-controller: 127.0.0.1:30003
+# local: 127.0.0.1 server: 0.0.0.0
+# external-controller: 0.0.0.0:30003
 # secret: "123456"
 
 sudo touch /etc/systemd/system/clash.service
@@ -568,6 +572,8 @@ sudo apt install gh
 https://code.visualstudio.com/docs/setup/linux
 
 sudo apt install ./<file>.deb
+
+snap安装的无法输入中文
 
 sudo snap install code --classic
 
@@ -1397,3 +1403,7 @@ fc-cache -fv
 输入密码后不能进入桌面
 
 https://askubuntu.com/questions/1086367/ubuntu-18-04-login-window-loop
+
+
+difference between apt update and apt upgrade
+https://linuxconfig.org/apt-update-vs-apt-upgrade
