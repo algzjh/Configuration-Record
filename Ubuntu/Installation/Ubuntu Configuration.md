@@ -12,7 +12,7 @@ echo "c0d025e560d54434a925b3707f8686a7f588c42a5fbc609b8ea2447f88847041 *ubuntu-1
 ubuntu-18.04.4-desktop-amd64.iso: OK
 ```
 
-制作 Ubuntu 镜像时，U盘被分成了多个区，在 Windows 下，只识别第一个区，即只显示 Ubuntu 引导区的大小。解决办法：https://www.zhihu.com/question/27888608
+制作 Ubuntu 镜像时，U 盘被分成了多个区，在 Windows 下，只识别第一个区，即只显示 Ubuntu 引导区的大小。解决办法：https://www.zhihu.com/question/27888608
 
 创建 Bootable USB driver，使用 Rufus
 
@@ -32,33 +32,26 @@ Install third-party software for graphics and wifi hardware and additional media
 
 https://askubuntu.com/questions/1043763/system-can-not-reboot-after-completing-installation
 
-
-
 关闭 windows10 快速启动：系统设置-电源和按钮-电源和睡眠
 
 关闭 security boot
 
-
-
 在 Ubuntu 上制作系统启动 U 盘
 
 解决无法格式化的问题
-
-
 
 - install third-party software for graphics and wifi hardware and additional media formats
 
 这样可以安装显卡驱动和一些多媒体编码解码软件
 
 - 实验室内部需要配置网络
-20.04 使用 netplan 作为网络管理工具
-https://segmentfault.com/a/1190000023426677
-https://linux265.com/news/6376.html
-
+  20.04 使用 netplan 作为网络管理工具
+  https://segmentfault.com/a/1190000023426677
+  https://linux265.com/news/6376.html
 
 ## partition recommendation
 
-推荐使用LVM!!
+推荐使用 LVM!!
 
 https://www.cyberciti.biz/faq/howto-add-disk-to-lvm-volume-on-linux-to-increase-size-of-pool/
 
@@ -69,7 +62,7 @@ UEFI System:
 
 EFI System Partition: 250MB primary
 
-/swap: 8 GB=8192MB  primary
+/swap: 8 GB=8192MB primary
 
 /: 100 GB=102400 MB primary
 
@@ -77,11 +70,9 @@ EFI System Partition: 250MB primary
 
 device for boot loader installation: 选择 EFI System Partition
 
-
-
 Legacy BIOS:
 
-/boot: 500MB  ext4 /boot
+/boot: 500MB ext4 /boot
 
 /swap 8GB
 
@@ -185,7 +176,7 @@ rar a tecmint.rar tecmint
 sudo apt update
 sudo apt install git
 git --version
-git config --global core.quotepath false # 解决 git status 中文乱码 
+git config --global core.quotepath false # 解决 git status 中文乱码
 ```
 
 - 安装 Chrome，同步 Google 账号信息
@@ -199,17 +190,17 @@ sudo apt install ./google-chrome-stable_current_amd64.deb
 
 - shell
 
-login shell: 使用本地终端或网络ssh登录一台主机时，启动的Shell是login Shell
-non-login shell: 登录之后，输入bash再启动一个Shell，这个Shell是non—login的
+login shell: 使用本地终端或网络 ssh 登录一台主机时，启动的 Shell 是 login Shell
+non-login shell: 登录之后，输入 bash 再启动一个 Shell，这个 Shell 是 non—login 的
 interactive shell: 交互式
 non-interactive shell: 脚本
 
 https://cjting.me/2020/08/16/shell-init-type/#zsh
 
-- .zshenv: 总是被读取,所以通常把$PATH, $EDITOR等变量写在这里,这样无论是在shell交互,或者运行程序都会读取此文件
-- .zshrc: 主要用在交互shell,所以主要是为shell服务的,比如对shell做的一些个性化设置都可以在这里写入
-- .zlogin: 在login shell的时候读取,所以比如X系统启动的时候会读取此文件,所以不会再运行中重复读取
-- .zprofile: 是给ksh用户的一个.zlogin的替代品,所以我们如果使用了.zlogin就不必再关心此文件
+- .zshenv: 总是被读取,所以通常把$PATH, $EDITOR 等变量写在这里,这样无论是在 shell 交互,或者运行程序都会读取此文件
+- .zshrc: 主要用在交互 shell,所以主要是为 shell 服务的,比如对 shell 做的一些个性化设置都可以在这里写入
+- .zlogin: 在 login shell 的时候读取,所以比如 X 系统启动的时候会读取此文件,所以不会再运行中重复读取
+- .zprofile: 是给 ksh 用户的一个.zlogin 的替代品,所以我们如果使用了.zlogin 就不必再关心此文件
 - .zlogout: 退出终端的时候读取,用于做一些清理工作,一般我们也用不上
 
 顺序：.zshenv → [.zprofile if login] → [.zshrc if interactive] → [.zlogin if login] → [.zlogout sometimes].
@@ -239,8 +230,7 @@ source $HOME/.profile.
 
 - lantern
 
-如果网络不好，先装lantern
-
+如果网络不好，先装 lantern
 
 - curl & wget
 
@@ -262,12 +252,11 @@ sudo systemctl status v2ray.service
 
 - clash
 
-下载Clash Premium, 设置secret，配置开机自启动
+下载 Clash Premium, 设置 secret，配置开机自启动
 
 https://clash.skk.moe/general
 
 https://cdn.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/
-
 
 ```shell
 curl -O https://xxxxx/clash-linux-amd64-2022.01.27.gz
@@ -312,7 +301,7 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 
-sudo systemctl daemon-reload 
+sudo systemctl daemon-reload
 sudo systemctl enable clash.service
 sudo systemctl restart clash.service
 sudo systemctl start clash.service
@@ -323,7 +312,7 @@ sudo systemctl disable clash.service
 
 web UI: http://clash.razord.top/
 
-防止跨域，chrome浏览器设置flag
+防止跨域，chrome 浏览器设置 flag
 block insecure private network request: disable
 
 export https_proxy=http://127.0.0.1:30002 http_proxy=http://127.0.0.1:30002 all_proxy=socks5://127.0.0.1:30002
@@ -332,8 +321,7 @@ unset https_proxy http_proxy all_proxy
 
 /home/vai/.config/clash
 
-多用户时可移动代理位置指 /etc 
-
+多用户时可移动代理位置指 /etc
 
 - zsh
 
@@ -360,6 +348,7 @@ https://medium.com/@abhinavkorpal/bash-profile-vs-bashrc-c52534a787d3
 主题：agnoster
 
 安装字体
+
 ```
 # clone
 git clone https://github.com/powerline/fonts.git --depth=1
@@ -380,7 +369,8 @@ sudo apt-get install fonts-powerline
 # Powerline fonts installed to /home/zjlab/.local/share/fonts
 ```
 
-只显示username，在zshrc中添加
+只显示 username，在 zshrc 中添加
+
 ```shell
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
@@ -407,7 +397,7 @@ https://www.windsings.com/posts/3c42339d/
 export ALL_PROXY=socks5://127.0.0.1:1080
 source ~/.zshrc
 
-alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080" 
+alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080"
 alias unsetproxy="unset ALL_PROXY"
 ```
 
@@ -420,8 +410,8 @@ alias setproxy="export http_proxy=http://127.0.0.1:8889 https_proxy="http://127.
 alias unsetproxy="unset http_proxy https_proxy"
 ```
 
-socks5好像有点问题，要 http
-每次要用的时候输入setproxy，不用了就unsetproxy。
+socks5 好像有点问题，要 http
+每次要用的时候输入 setproxy，不用了就 unsetproxy。
 
 测试`curl cip.cc`
 
@@ -569,16 +559,16 @@ sudo apt install gh
 ```
 
 - VS Code
-https://code.visualstudio.com/docs/setup/linux
+  https://code.visualstudio.com/docs/setup/linux
 
 sudo apt install ./<file>.deb
 
-snap安装的无法输入中文
+snap 安装的无法输入中文
 
 sudo snap install code --classic
 
 - VS Code terminal powerline
-terminal.integrated.fontFamily: 'DejaVu Sans Mono for Powerline'
+  terminal.integrated.fontFamily: 'DejaVu Sans Mono for Powerline'
 
 - 安装 Krusader
 
@@ -602,7 +592,7 @@ sudo apt purge "software name"
 
 - Qv2ray
 
-下载Qray
+下载 Qray
 https://github.com/Qv2ray/Qv2ray/releases
 Qv2ray_2.5.0-1_amd64.deb
 Qv2ray.v.2.5.0.linux-x64.AppImage
@@ -621,7 +611,7 @@ chmod +x v2ray
 chmod +x v2ctl
 
 V2ray path configuration check passed.
-Current version of V2ray is: 
+Current version of V2ray is:
 V2Ray 4.25.1 (V2Fly, a community-driven edition of V2Ray.) Custom (go1.14.4 linux/amd64)
 
 Tag: outBound_PROXY
@@ -630,7 +620,7 @@ Port: 端口
 Type: VMess
 UUID:
 AlterId: 64
-Security加密方式: auto
+Security 加密方式: auto
 Protocol Settings-Transport Protocol: ws
 Protocol Settings-Path: /api/v3/download.getFile
 Protocol Settings-Headers: Host|ws-host
@@ -664,7 +654,6 @@ Qv2ray Groups 填入订阅地址
 
 SwitchyOmega 配置
 
-
 - nvm
 
 oh my zsh 安装插件：
@@ -688,7 +677,7 @@ export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
 nvm、node、npm 区别：
 https://www.jianshu.com/p/db8af76ff9ae
 
-设置nodejs镜像和npm镜像
+设置 nodejs 镜像和 npm 镜像
 
 ```
 npm config set registry https://registry.npm.taobao.org
@@ -752,8 +741,8 @@ npm config get registry
 sudo npm install -g npm@latest
 ```
 
-
 https://github.com/nodesource/distributions/blob/master/README.md#debinstall
+
 ```
 # Using Ubuntu
 curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
@@ -833,11 +822,11 @@ sudo dpkg -i electron-ssr-0.2.7.deb
 
 Setting Network Proxy Manual
 
-127.0.0.1   12333
+127.0.0.1 12333
 
-127.0.0.1   12333
+127.0.0.1 12333
 
-127.0.0.1    1080
+127.0.0.1 1080
 
 ignore hosts: localhost, 127.0.0.0/8, ::1
 
@@ -874,9 +863,9 @@ sudo apt install ./sogoupinyin_2.3.1.0112_amd64.deb
 
 input sources 只选 English(US)
 
-Manage Installed Languages中的 language 只选 English (United States) 和 English，不用选汉语，Keyboard input method system 选择 fcitx 
+Manage Installed Languages 中的 language 只选 English (United States) 和 English，不用选汉语，Keyboard input method system 选择 fcitx
 
-Settings-Region & Language - Manage Installed Languages - Keyboard input method system - fcitx 
+Settings-Region & Language - Manage Installed Languages - Keyboard input method system - fcitx
 
 Apply System Wide
 
@@ -993,7 +982,7 @@ PasswordAuthentication yes
 
 ```shell
 sudo apt-get install tmux
-tmux 
+tmux
 exit
 tmux ls
 ```
@@ -1013,6 +1002,7 @@ http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
 https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal
 
 ~/.profile
+
 ```shell
 export PATH="$PATH:/usr/local/cuda-10.2/bin"
 ```
@@ -1034,6 +1024,7 @@ sudo apt install filezilla
 snap install postman
 # sudo snap install postman
 ```
+
 too slow
 
 - Latex
@@ -1055,7 +1046,6 @@ sudo apt-get update
 sudo apt-get install texstudio
 ```
 
-
 - GNOME Dictionary
 
 ```shell
@@ -1069,8 +1059,8 @@ Linux (deb) 64 bit installer for .deb based systems
 https://wiki.geogebra.org/en/Reference:GeoGebra_Installation
 
 ```shell
-sudo apt-add-repository -u 'deb http://www.geogebra.net/linux/ stable main' 
-sudo apt install geogebra-classic 
+sudo apt-add-repository -u 'deb http://www.geogebra.net/linux/ stable main'
+sudo apt install geogebra-classic
 ```
 
 - 卸载 LibreOffice，安装 WPS
@@ -1098,6 +1088,7 @@ sudo mysql_secure_installation
 ```
 
 Adjusting User Authentication and Privileges.
+
 ```shell
 sudo mysql
 SELECT user,authentication_string,plugin,host FROM mysql.user;
@@ -1107,7 +1098,7 @@ SELECT user,authentication_string,plugin,host FROM mysql.user;
 exit
 ```
 
-login 
+login
 
 ```sql
 mysql -u root -p
@@ -1115,6 +1106,7 @@ select current_user();
 ```
 
 密码政策：
+
 ```sql
 SHOW VARIABLES LIKE 'validate_password%';
 SET GLOBAL validate_password.policy=LOW;
@@ -1144,15 +1136,14 @@ sudo mysqladmin -p -u root version
 ```
 
 - 安装 mysql workbench
-https://dev.mysql.com/doc/workbench/en/wb-installing-linux.html
+  https://dev.mysql.com/doc/workbench/en/wb-installing-linux.html
 
 https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/
 
 sudo apt-get install mysql-workbench-community
 
 - 安装 navicat 15
-https://buxuhunao.com/article/how-to-use-navicat15-in-ubuntu.html
-
+  https://buxuhunao.com/article/how-to-use-navicat15-in-ubuntu.html
 
 - 安装 Hadoop、Yarn、Spark
 
@@ -1223,7 +1214,7 @@ sudo vim 64-language-selector-prefer.conf
 ```
 
 - tree
-sudo apt-get install tree
+  sudo apt-get install tree
 
 - flameshot
 
@@ -1251,8 +1242,8 @@ sudo apt install gh
 https://www.mendeley.com/download-desktop-new/#download
 
 - nutstore
-install from source code
-https://www.jianguoyun.com/s/downloads/linux
+  install from source code
+  https://www.jianguoyun.com/s/downloads/linux
 
 ```shell
 sudo dpkg -i nautilus_nutstore_amd64.deb
@@ -1263,7 +1254,7 @@ sudo apt-get install -f
 
 https://github.com/retorquere/zotero-deb
 
-preferences 中的Sync 登录 Zotero 账号，取消 File Syncing 中的选中状态，Export 中选择 IEEE，Advanced 中的 Files and Folders 中选择 Linked Attachment Base Directory 中的 Base directory 设置为Nutstore Files/zotero，Data Directory Location 选择 Default。
+preferences 中的 Sync 登录 Zotero 账号，取消 File Syncing 中的选中状态，Export 中选择 IEEE，Advanced 中的 Files and Folders 中选择 Linked Attachment Base Directory 中的 Base directory 设置为 Nutstore Files/zotero，Data Directory Location 选择 Default。
 
 安装 zotfile 插件
 打开 Zotfile Preferences，Source Folder for Attaching New Files 中设置为 Downloads，Location of Files 设置为 Custom Location：Nutstore Files-zotero，选中 use subfolder defined by
@@ -1275,16 +1266,15 @@ sudo apt install zotero
 ```
 
 - JASP
-https://jasp-stats.org/download/
+  https://jasp-stats.org/download/
 
 - Jamovi
-https://www.jamovi.org/download.html
+  https://www.jamovi.org/download.html
 
 - Xmind
-https://www.xmind.net/
+  https://www.xmind.net/
 
 `sudo snap install xmind`
-
 
 - 百度网盘
 
@@ -1297,7 +1287,6 @@ https://slgobinath.github.io/SafeEyes/
 手动添加 ppa （上面成功了就不用）
 
 https://blog.zackad.dev/en/2017/08/17/add-ppa-simple-way.html
-
 
 - Spotify
 
@@ -1334,13 +1323,13 @@ https://blog.zackad.dev/en/2017/08/17/add-ppa-simple-way.html
 
 ```shell
 # add ppa manually to /etc/apt/source.list
-deb http://ppa.launchpad.net/qbittorrent-team/qbittorrent-stable/ubuntu focal main 
-deb-src http://ppa.launchpad.net/qbittorrent-team/qbittorrent-stable/ubuntu focal main 
+deb http://ppa.launchpad.net/qbittorrent-team/qbittorrent-stable/ubuntu focal main
+deb-src http://ppa.launchpad.net/qbittorrent-team/qbittorrent-stable/ubuntu focal main
 
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 401E8827DA4E93E44C7D01E6D35164147CA69FC4
 
 ```
-  
+
 ```shell
 sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
 sudo apt update
@@ -1353,7 +1342,7 @@ enable dual mode in /etc/bluetooth/main.conf
 sudo /etc/init.d/bluetooth restart
 
 - Musixmatch
-  
+
 ```shell
 sudo snap install musixmatch
 ```
@@ -1397,13 +1386,23 @@ fc-cache -fv
 
 注销后登录
 
+- Inkscape
+
+```shell
+sudo add-apt-repository ppa:inkscape.dev/stable
+sudo apt update
+sudo apt install inkscape
+```
+
+- 取色
+
+gpick
 
 ## Other Problems
 
 输入密码后不能进入桌面
 
 https://askubuntu.com/questions/1086367/ubuntu-18-04-login-window-loop
-
 
 difference between apt update and apt upgrade
 https://linuxconfig.org/apt-update-vs-apt-upgrade
