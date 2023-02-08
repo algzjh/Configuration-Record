@@ -263,6 +263,7 @@ curl -O https://xxxxx/clash-linux-amd64-2022.01.27.gz
 ```
 
 https://zhuanlan.zhihu.com/p/430035973
+
 https://einverne.github.io/post/2021/03/linux-use-clash.html
 
 ```shell
@@ -1406,3 +1407,13 @@ https://askubuntu.com/questions/1086367/ubuntu-18-04-login-window-loop
 
 difference between apt update and apt upgrade
 https://linuxconfig.org/apt-update-vs-apt-upgrade
+
+蓝牙打不开
+
+https://techstoriesindia.blogspot.com/2020/05/fix-ubuntu-20-04-bluetooth-doesnt-turn-on.html
+
+```shell
+sudo rmmod btusb
+
+sudo modprobe btusb
+```
