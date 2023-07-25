@@ -250,6 +250,10 @@ sudo systemctl start v2ray.service
 sudo systemctl status v2ray.service
 ```
 
+- proxy
+
+flyingbird, speedcat, bywave
+
 - clash
 
 下载 Clash Premium, 设置 secret，配置开机自启动
