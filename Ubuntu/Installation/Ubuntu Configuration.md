@@ -179,6 +179,23 @@ git --version
 git config --global core.quotepath false # 解决 git status 中文乱码
 ```
 
+git 设置代理拉取代码（兼容 windows/mac/linux）
+https://zwc365.com/2021/11/09/git-set-proxy-pull-code
+
+配置 ~/.ssh/config
+
+```
+# 必须是 github.com
+Host github.com
+   HostName github.com
+   User git
+   # 走 socks5 代理
+   ProxyCommand nc -v -x 127.0.0.1:1080 %h %p
+   # 走 HTTP 代理
+   # ProxyCommand nc -v -X connect -x 127.0.0.1:8090 %h %p
+
+```
+
 - 安装 Chrome，同步 Google 账号信息
 
 make google chrome the default browser
