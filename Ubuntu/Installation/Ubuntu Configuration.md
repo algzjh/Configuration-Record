@@ -196,6 +196,15 @@ Host github.com
 
 ```
 
+走 ssh
+
+```
+Host github.com
+ Hostname ssh.github.com
+ User git
+ ProxyCommand nc -v -x 127.0.0.1:8899 %h %p
+```
+
 - 安装 Chrome，同步 Google 账号信息
 
 make google chrome the default browser
